@@ -4,6 +4,8 @@ import './App.css';
 import {Toggler, TogglerItem} from './Toggler/toggler.js'
 import Input from './input.js';
 
+import InputFile from './inputFile.js';
+
 class App extends Component {
   state = {
     layout: 'left',
@@ -11,7 +13,8 @@ class App extends Component {
     name: '',
     password: '',
     age: '',
-    lang: ''
+    lang: '',
+    uploadImage: ''
   }
 
   changeStatus = (e) => {
@@ -45,7 +48,7 @@ class App extends Component {
 
   render() {
     let { layout, gender, name, password, age, lang } = this.state;
-    let { changeStatus, onChangeHandler, submitForm } = this;
+    let { changeStatus, onChangeHandler, submitForm, changeFile } = this;
 
     return (
       <form className="App">
@@ -103,6 +106,8 @@ class App extends Component {
           label="lang"
           action={onChangeHandler}>
         </Input>
+
+        <InputFile />
 
         <button onClick={submitForm}>Submit</button>
       </form>
